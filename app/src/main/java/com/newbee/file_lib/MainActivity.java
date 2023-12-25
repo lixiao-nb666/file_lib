@@ -10,6 +10,8 @@ import com.newbee.file.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.SortedMap;
 
 public class MainActivity extends Activity {
 
@@ -19,11 +21,15 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         ArrayList<FileInfo> list=new ArrayList<>();
-        list=MyFileSearch.getPhoneAllVideoFile(list);
+        list=MyFileSearch.getPhoneAllImageFile(list);
         for(FileInfo fileInfo:list){
             Log.i("kankanshenmegui","kankanwenjian:"+fileInfo);
         }
-
+        List<SortFileInfo> sortFileInfoList=SortFileInfoUtil.getSortFileInfoList(list);
         Log.i("kankanshenmegui","kankanwenjian:11111");
+        for(SortFileInfo sortFileInfo:sortFileInfoList){
+            Log.i("kankanshenmegui","kankanwenjian222:"+sortFileInfo.getFileInfoList().size());
+        }
+        Log.i("kankanshenmegui","kankanwenjian:22222");
     }
 }

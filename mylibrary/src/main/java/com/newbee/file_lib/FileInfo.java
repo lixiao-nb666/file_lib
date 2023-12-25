@@ -6,13 +6,14 @@ import java.io.Serializable;
 public class FileInfo implements Serializable {
 	private String fileName;
 	private String filePath;
-	private	FileType fileType;
+	private	long lastTime;
+	private     double len;//KB
 
-	public FileInfo(){}
-
-	public FileInfo(String fileName, String filePath) {
+	public FileInfo(String fileName, String filePath, long lastTime,double len) {
 		this.fileName = fileName;
 		this.filePath = filePath;
+		this.lastTime = lastTime;
+		this.len=len;
 	}
 
 	public String getFileName() {
@@ -31,12 +32,20 @@ public class FileInfo implements Serializable {
 		this.filePath = filePath;
 	}
 
-	public FileType getFileType() {
-		return fileType;
+	public long getLastTime() {
+		return lastTime;
 	}
 
-	public void setFileType(FileType fileType) {
-		this.fileType = fileType;
+	public void setLastTime(long lastTime) {
+		this.lastTime = lastTime;
+	}
+
+	public double getLen() {
+		return len;
+	}
+
+	public void setLen(double len) {
+		this.len = len;
 	}
 
 	@Override
@@ -44,7 +53,8 @@ public class FileInfo implements Serializable {
 		return "FileInfo{" +
 				"fileName='" + fileName + '\'' +
 				", filePath='" + filePath + '\'' +
-				", fileType=" + fileType +
+				", lastTime=" + lastTime +
+				", len=" + len +
 				'}';
 	}
 }

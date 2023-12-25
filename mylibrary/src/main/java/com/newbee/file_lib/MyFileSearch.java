@@ -34,8 +34,10 @@ public class MyFileSearch {
 
         try {
             for (int i = 0; i < needFiles.length; i++) {
+                long length =needFiles[i].length();
+                double len=(double)length/1024;//kb
                 fileInfos.add(new FileInfo(needFiles[i].getName(), needFiles[i]
-                        .getAbsolutePath()));
+                        .getAbsolutePath(),needFiles[i].lastModified(),len));
             }
             for (int i = 0; i < files.length; i++) {
                 if (files[i].isDirectory()) {
@@ -59,8 +61,10 @@ public class MyFileSearch {
         File file = Environment.getExternalStorageDirectory();
         File files[] = getFiles(file);
         for (int i = 0; i < files.length; i++) {
+            long length =files[i].length();
+            double len=(double)length/1024;//kb
             fileInfos.add(new FileInfo(files[i].getName(), files[i]
-                    .getAbsolutePath()));
+                    .getAbsolutePath(),files[i].lastModified(),len));
             if (files[i].isDirectory()) {
                 getPhoneAllFile(fileInfos, files[i]);
             }
@@ -76,8 +80,10 @@ public class MyFileSearch {
         tag = "MyFileSearch>>>getPhoneAllFile()";
         File files[] = getFiles(file);
         for (int i = 0; i < files.length; i++) {
+            long length =files[i].length();
+            double len=(double)length/1024;//kb
             fileInfos.add(new FileInfo(files[i].getName(), files[i]
-                    .getAbsolutePath()));
+                    .getAbsolutePath(),files[i].lastModified(),len));
             if (files[i].isDirectory()) {
                 getPhoneAllFile(fileInfos, files[i]);
             }
@@ -202,7 +208,5 @@ public class MyFileSearch {
         }
         return files;
     }
-
-
 
 }
