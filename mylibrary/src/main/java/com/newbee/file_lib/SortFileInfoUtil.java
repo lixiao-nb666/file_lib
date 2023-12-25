@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 public class SortFileInfoUtil {
-    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy:MM:dd");
+    public static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
     public static List<SortFileInfo> getSortFileInfoList(List<FileInfo> fileInfoList){
         if(null==fileInfoList||fileInfoList.size()==0){
